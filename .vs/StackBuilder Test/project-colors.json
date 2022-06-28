@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "73e1c9b3-c669-4cf4-83ca-61175bce2de7": {
+      "ProjectGuid": "73e1c9b3-c669-4cf4-83ca-61175bce2de7",
+      "DisplayName": "StackBuilder Test",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Archivos varios",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}
