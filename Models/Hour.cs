@@ -9,7 +9,8 @@ namespace StackBuilder_Test.Models
     public class Hour
     {
         public Guid Id { get; set; }
-        public int Hour24Format { get; set; }
-        public bool ApplyPicoyPlaca { get; set; }
+        public float HourSince { get; set; }
+        public float HourTo { get; set; }
+        public bool isAM { get; set; }
     }
 }

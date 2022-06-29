@@ -13,7 +13,7 @@ namespace UnitTestings
             "The Plate is Null or Empty")]
         public void CheckIfPlateIsEmpty()
         {
-            Request request = new Request() {Plate = "", DateInStringFormat = "2022-06-28", Hour24Format=15 };
+            Request request = new Request() {Plate = "", DateInStringFormat = "2022-06-28", Hour24Format="15.00" };
             var service = new Calculations(request).GetLastNumberOfPlate();
             Assert.Fail();
         }
@@ -23,7 +23,7 @@ namespace UnitTestings
         "The last digit is not a valid number")]
         public void CheckIfLastDigitOfPlateIsNumber()
         {
-            Request request = new Request() { Plate = "PHM0AAA", DateInStringFormat = "2022-06-28", Hour24Format = 15 };
+            Request request = new Request() { Plate = "PHM0AAA", DateInStringFormat = "2022-06-28", Hour24Format = "15.00" };
             var service = new Calculations(request).GetLastNumberOfPlate();
             Assert.Fail();
         }
@@ -33,7 +33,7 @@ namespace UnitTestings
         "The date you entered is incorrect")]
         public void CheckIfDateIsInCorrectFormat()
         {
-            Request request = new Request() { Plate = "PHM0AA3", DateInStringFormat = "2022-06", Hour24Format = 15 };
+            Request request = new Request() { Plate = "PHM0AA3", DateInStringFormat = "2022-06", Hour24Format = "15.00" };
             var service = new Calculations(request).CalculateDayOfTheWeek();
             Assert.Fail();
         }
@@ -44,7 +44,7 @@ namespace UnitTestings
         [TestMethod]
         public void CheckIfExistsRestrictionsMethodIsCorrect()
         {
-            Request request = new Request() { Plate = "PHM323", DateInStringFormat = "2022-06-28", Hour24Format = 16 };
+            Request request = new Request() { Plate = "PHM323", DateInStringFormat = "2022-06-28", Hour24Format = "17.00" };
             var service = new Calculations(request).ExistsRestrictions();
             Assert.AreEqual(true, service);
         }

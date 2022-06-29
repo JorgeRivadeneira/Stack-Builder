@@ -36,8 +36,8 @@ namespace StackBuilder_Test
             Console.WriteLine("Enter the date you want to check, in this format: yyyy-MM-dd, Ex: 2022-12-31");
             request.DateInStringFormat = Console.ReadLine();
 
-            Console.WriteLine("Enter the hour you want to check, For Example: 7 (7am) or 19 (19pm)");
-            request.Hour24Format = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the hour you want to check, For Example: 7.00 (7am) or 19.00 (19pm)");
+            request.Hour24Format = Console.ReadLine();
 
             return request;
         }

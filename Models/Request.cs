@@ -13,6 +13,6 @@ namespace StackBuilder_Test.Models
     {
         public string Plate { get; set; }
         public string DateInStringFormat { get; set; }
-        public int Hour24Format { get; set; }
+        public string Hour24Format { get; set; }
     }
 }

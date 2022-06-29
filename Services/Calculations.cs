@@ -2,6 +2,7 @@
 using StackBuilder_Test.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -16,7 +17,7 @@ namespace StackBuilder_Test.Services
     {
         private string _plate;
         private string _date;
-        private int _hour;
+        private string _hour;
         public Calculations(Request request)
         {
             this._plate = request.Plate;
@@ -37,6 +38,8 @@ namespace StackBuilder_Test.Services
             //Fetch all the Data to find the data corresponding to the day entered
             var day = daysApply.Find(d => d.DayOfWeek == CalculateDayOfTheWeek());
 
+            float hour = float.Parse(_hour, CultureInfo.InvariantCulture.NumberFormat);
+            Hour hours = new Hour();
 
             if (day.ApplyPicoyPlaca)
             {
@@ -45,12 +48,25 @@ namespace StackBuilder_Test.Services
                 {
                     //if the last digit of the plate match with the restrictions, find the hour
                     var hoursapply = new HoursApply().GetScheduleHours();
-                    var hour = hoursapply.Find(h => h.Hour24Format == _hour);
+                    if(hour <= 12)
+                    {
+                        hours = hoursapply.Find(h => h.isAM == true);
+                    }
+                    else
+                    {
+                        hours = hoursapply.Find(h => h.isAM == false);
+                    }
 
-                    if (hour.ApplyPicoyPlaca)
+
+                    if(hours.HourSince <= hour && hours.HourTo >= hour)
                     {
                         return true;
                     }
+                    else
+                    {
+                        return false;
+                    }
+                        
                 }
 
             }
